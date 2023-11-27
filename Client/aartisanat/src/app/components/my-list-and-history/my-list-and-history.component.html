@@ -1,0 +1,41 @@
+<app-navbar-seller></app-navbar-seller>
+<div *ngIf="listData">
+    <div>
+      <h3>Products:</h3>
+      <table class="table table-border ">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>description</th>
+            <th>price</th>
+          </tr>
+        </thead>
+        <tbody *ngFor="let product of listData.productsByUser">
+          <tr *ngIf="product.typeProduct==false">
+            <td><a role="button" class="text-ingo" (click)="showProduct(product.id)">{{product.name}}</a></td>
+            <td>{{product.description}}</td>
+            <td>{{product.price}}</td>
+          </tr>
+        </tbody>
+      </table>
+      
+      <table class="table table-border mt-5">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>description</th>
+            <th>start auction</th>
+            <th>end auction</th>
+          </tr>
+        </thead>
+        <tbody *ngFor="let product of listData.productsByUser">
+          <tr *ngIf="product.typeProduct==true">
+            <td> <a role="button" class="text-ingo" (click)="showProduct(product.id)">{{product.name}}</a> </td>
+            <td>{{product.description}}</td>
+            <td>{{product.startTime | date: 'dd MMM yyyy'}}</td>
+            <td>{{product.endTime | date: 'dd MMM yyyy'}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>

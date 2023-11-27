@@ -1,0 +1,58 @@
+
+    <div id="sidebar">
+        <div class="p-4 header-container">
+            <img src="./../../../assets/images/logo.png" alt="logo" class="sidebar-logo mb-3">
+            <span class="site-name retro-groovy">MAGESTIC SOUK</span>
+            <div class="list-group mt-1">
+                <div class="">
+                    <a role="button" (click)="dashboardUser()" class="list-group-item text-only mt-3 ms-2 ">
+                        <img src="./../../../assets/images/iconbuyer.webp" alt="User Interface"
+                            class="sidebar-icon rounded-pill border">
+                        <span>USER INTERFACE</span>
+                    </a>
+                </div>
+                <div class="activeinterface">
+                    <a role="button" (click)="dashboardSeller()" class="list-group-item text-only mt-3 ms-2">
+                        <img src="./../../../assets/images/seller.webp" alt="Seller Interface"
+                            class="sidebar-icon rounded-pill border">
+                        <span>SELLER INTERFACE</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="list-group-item text-only logout">
+            <a href="#" class="list-group-item text-only">
+                <i class="fas fa-sign-out-alt sidebar-icon" style="font-size: 100px; display: block; margin: auto;"></i>
+            </a>
+            <span role="button" (click)="logout()">LOGOUT</span>
+        </div>
+    </div>
+    
+    <div class="profile-container" role="button" (click)="editProfle()">
+        <img [src]="'http://localhost:8080/uploads/'+data.loggedUser.file_path" alt="Profile Image"
+            class="profile-image rounded-circle">
+        <div class="profile-text">
+            <span class="profile-name">{{data.loggedUser.username}}</span>
+            <span class="profile-email">{{data.loggedUser.email}}</span>
+        </div>
+    </div>
+    
+    <div class="balance-container">
+        <img src="./../../../assets/images/bd690801-a741-4b62-8877-ca79a99259c7.webp" alt="Profile Image"
+            class="profile-image rounded-circle">
+        <div class="profile-text">
+            <span class="profile-name">balance</span>
+            <span class="balancespan">{{data.wallet.balance | currency}}</span>
+        </div>
+    </div>
+    
+    <div class="add-button">
+        <form (ngSubmit)="AddBalance()">
+    
+            <span class="tooltip-text">Add Balance <input type="number" class="w-75 tooltip-text border border-5"
+                    name="amount" [(ngModel)]="amount"> </span>
+            <button type="submit" class="btn btn-primary rounded-circle"><i class="fas fa-plus"></i>
+            </button>
+    
+        </form>
+    </div>

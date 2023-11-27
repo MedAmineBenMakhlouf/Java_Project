@@ -1,0 +1,76 @@
+/* Style for the custom navbar */
+.navbar-custom {
+  background-color: #4e5d6c; /* A slightly desaturated dark blue */
+  border-bottom: 3px solid #ff875f; /* A pop of warm color to highlight */
+}
+
+/* Style for navbar brand and links */
+.navbar-custom .navbar-brand,
+.navbar-custom .nav-link {
+  color: #d2dae2; /* A light, desaturated blue-gray text for readability */
+  transition: color 0.3s ease-in-out; /* Smooth transition for hover effects */
+}
+
+/* Hover effect for brand and links */
+.navbar-custom .navbar-brand:hover,
+.navbar-custom .nav-link:hover {
+  color: #ffffff; /* White text on hover for contrast */
+}
+
+/* Active link style */
+.navbar-custom .nav-link.active {
+  color: #ffffff; /* White text for active link */
+  background-color: #ff875f; /* Warm color background for the active link */
+  border-radius: 5px; /* Rounded corners for the active link background */
+}
+
+/* Dropdown menu style */
+.navbar-custom .dropdown-menu {
+  background-color: #4e5d6c; /* Matching dark blue background for dropdown */
+  border: none;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Subtle shadow for depth */
+}
+
+/* Dropdown items style */
+.navbar-custom .dropdown-item {
+  color: #d2dae2; /* Matching text color for dropdown items */
+}
+
+/* Hover effect for dropdown items */
+.navbar-custom .dropdown-item:hover {
+  background-color: #ff875f; /* Warm color background on hover */
+  color: #ffffff; /* White text color on hover for readability */
+}
+
+/* Profile dropdown style */
+.navbar-custom .profile-dropdown {
+  background-color: transparent; /* Clear background for the profile dropdown */
+}
+
+/* Profile image style */
+.profile-image {
+  width: 40px; /* Slightly larger profile image */
+  height: 40px;
+  border-radius: 50%;
+  border: 2px solid #ffffff; /* White border around the profile image */
+  transition: transform 0.3s ease-in-out; /* Smooth transition for hover effect */
+}
+
+/* Hover effect for profile image */
+.profile-image:hover {
+  transform: scale(1.1); /* Slightly enlarge profile image on hover */
+}
+/* Align text and image vertically */
+.profile-details {
+  display: flex;
+  align-items: center; /* This will vertically align the flex items */
+  color: white;
+}
+
+.profile-image {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  /* Align image properly if there's a misalignment issue */
+  align-self: center;
+}

@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+
+<body>
+	<div class="mb-5 ">
+		<div id="hover-trigger"></div>
+		<div id="sidebar">
+			<div class="p-4 header-container">
+				<img src="./../../../assets/images/logo.png" alt="logo" class="sidebar-logo mb-3">
+				<span class="site-name retro-groovy">MAGESTIC SOUK</span>
+				<div class="list-group mt-1">
+					<div class="activeinterface">
+						<a role="button" (click)="dashboardUser()" class="list-group-item text-only mt-3 ms-2 ">
+							<img src="./../../../assets/images/iconbuyer.webp" alt="User Interface"
+								class="sidebar-icon rounded-pill border">
+							<span>USER INTERFACE</span>
+						</a>
+					</div>
+					<div class="">
+						<a role="button" (click)="dashboardSeller()" class="list-group-item text-only mt-3 ms-2">
+							<img src="./../../../assets/images/seller.webp" alt="Seller Interface"
+								class="sidebar-icon rounded-pill border">
+							<span>SELLER INTERFACE</span>
+						</a>
+					</div>
+				</div>
+			</div>
+			<div class="list-group-item text-only logout">
+				<a href="#" class="list-group-item text-only">
+					<i class="fas fa-sign-out-alt sidebar-icon"
+						style="font-size: 100px; display: block; margin: auto;"></i>
+				</a>
+				<span role="button" (click)="logout()">LOGOUT</span>
+			</div>
+		</div>
+		<div class="mb-5">
+			<div class="profile-container" role="button" (click)="editProfle()">
+				<img [src]="'http://localhost:8080/uploads/'+dashboardData.loggedUser.file_path " alt="Profile Image"
+					class="profile-image rounded-circle">
+				<div class="profile-text">
+					<span class="profile-name">{{dashboardData.loggedUser.username}}</span>
+					<span class="profile-email">{{dashboardData.loggedUser.email}}</span>
+				</div>
+			</div>
+
+			<div class="balance-container">
+				<img src="./../../../assets/images/bd690801-a741-4b62-8877-ca79a99259c7.webp" alt="Profile Image"
+					class="profile-image rounded-circle">
+				<div class="profile-text">
+					<span class="profile-name">balance</span>
+					<span class="balancespan">{{dashboardData.wallet.balance | currency}}</span>
+				</div>
+			</div>
+
+			<div class="add-button">
+				<form (ngSubmit)="AddBalance()">
+
+					<span class="tooltip-text">Add Balance <input type="number"
+							class="w-75 tooltip-text border border-5" name="amount" [(ngModel)]="amount"> </span>
+					<button type="submit" class="btn btn-primary rounded-circle"><i class="fas fa-plus"></i>
+					</button>
+
+				</form>
+			</div>
+			<div class="withdraw-button">
+				<form (ngSubmit)="withdrawBalance()">
+
+					<span class="tooltip-text">Withdraw Balance <input type="number"
+							class="w-75 tooltip-text border border-5" name="withdrow" [(ngModel)]="withdrow"> </span>
+					<button type="submit" class="btn btn-primary rounded-circle"> <i class="fas fa-minus"></i>
+					</button>
+
+				</form>
+			</div>
+		</div>
+	</div>
+	<div class="container" style="margin-top: 200px;">
+		<div class="row">
+			<div class="col-6">
+				<div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+					<!-- Carousel Indicators -->
+					<div class="carousel-indicators">
+						<button *ngFor="let file of rep.product.files; let i = index" type="button"
+							data-bs-target="#carouselExampleIndicators" [attr.data-bs-slide-to]="i"
+							[class.active]="i === 0" aria-current="true" [attr.aria-label]="'Slide ' + (i + 1)">
+						</button>
+					</div>
+
+					<!-- Carousel Images -->
+					<div class="carousel-inner">
+						<div *ngFor="let file of rep.product.files; let i = index" class="carousel-item"
+							[class.active]="i === 0">
+							<img [src]="'http://localhost:8080/uploads/' + file.path"
+								style="width: 400px; height: 400px;" class="d-block w-100" alt="product pic">
+						</div>
+					</div>
+
+					<!-- Carousel Controls -->
+					<button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
+						data-bs-slide="prev">
+						<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+						<span class="visually-hidden">Previous</span>
+					</button>
+					<button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
+						data-bs-slide="next">
+						<span class="carousel-control-next-icon" aria-hidden="true"></span>
+						<span class="visually-hidden">Next</span>
+					</button>
+				</div>
+
+			</div>
+			<div class="col-6">
+				<div class="card">
+					<div class="card-header d-flex justify-content-between">
+
+						<h5>
+							Product Details
+						</h5>
+						<div *ngIf="rep.product.user.id==dashboardData.loggedUser.id">
+							<h5> (Your Product)</h5>
+						</div>
+					</div>
+					<div class="card-body">
+						<h5 class="card-title">{{rep.product.name}}</h5>
+						<p class="card-text">DESCRIPTION: {{rep.product.description}}</p>
+						<div *ngIf="rep.product.typeProduct==true; else notOnAuction">
+							<p class="card-text">TYPE: for auction</p>
+							<p class="card-text">START DATE:
+								{{rep.product.startTime | date: "dd MMM yyyy"}} at {{rep.product.startTime | date:
+								"HH:mm"}}
+							</p>
+							<p class="card-text">LAST DATE:
+								{{rep.product.endTime | date: "dd MMM yyyy"}} at {{rep.product.endTime | date: "HH:mm"}}
+							</p>
+							<p class="card-text">LAST BID: {{rep.lastParticipation | currency}}</p>
+							<div *ngIf="rep.product.user.id != dashboardData.loggedUser.id">
+								<div *ngIf="dashboardData.wallet.balance!=0; else empty">
+									<a role="button" (click)="participate(rep.product.id)"
+										class="btn btn-primary">Participate</a>
+								</div>
+								<ng-template #empty>
+									<a role="button" class="btn btn-primary disabled">Your wallet is empty</a>
+								</ng-template>
+							</div>
+						</div>
+						<ng-template #notOnAuction>
+							<p class="card-text">TYPE: Not for auction</p>
+							<p class="card-text">PRICE {{rep.product.price | currency}} </p>
+							<div *ngIf="rep.product.status==0; else tbe3">
+								<div *ngIf="rep.product.user.id != dashboardData.loggedUser.id; else yours">
+									<div *ngIf="dashboardData.wallet.balance!=0; else fempty">
+										<a role="button" (click)="buy(rep.product.id)" class="btn btn-primary">Buy it</a>
+									</div>
+									<ng-template #fempty>
+										<a role="button" class="btn btn-primary disabled">Your wallet is empty</a>
+									</ng-template>
+								</div>
+								<ng-template #yours>
+									<a role="button" class="btn btn-primary disabled">Your product</a>
+								</ng-template>
+							</div>
+							<ng-template #tbe3>
+								<a role="button" class="btn btn-primary disabled">Sold</a>
+							</ng-template>
+							</ng-template>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+
+</html>

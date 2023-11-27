@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="hover-trigger"></div>
+    <div id="sidebar">
+        <div class="p-4 header-container">
+            <img src="./../../../assets/images/logo.png" alt="logo" class="sidebar-logo mb-3">
+            <span class="site-name retro-groovy">MAGESTIC SOUK</span>
+            <div class="list-group mt-1">
+                <div class="activeinterface">
+                    <a role="button" (click)="dashboardUser()" class="list-group-item text-only mt-3 ms-2 ">
+                        <img src="./../../../assets/images/iconbuyer.webp" alt="User Interface"
+                            class="sidebar-icon rounded-pill border">
+                        <span>USER INTERFACE</span>
+                    </a>
+                </div>
+                <div class="">
+                    <a role="button" (click)="dashboardSeller()" class="list-group-item text-only mt-3 ms-2">
+                        <img src="./../../../assets/images/seller.webp" alt="Seller Interface"
+                            class="sidebar-icon rounded-pill border">
+                        <span>SELLER INTERFACE</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="list-group-item text-only logout">
+            <a href="#" class="list-group-item text-only">
+                <i class="fas fa-sign-out-alt sidebar-icon" style="font-size: 100px; display: block; margin: auto;"></i>
+            </a>
+            <span role="button" (click)="logout()">LOGOUT</span>
+        </div>
+    </div>
+
+
+
+    <div class="container-xl mt-4">
+        <!-- Account page navigation-->
+        <nav class="nav nav-borders">
+            <a class="nav-link " (click)=" goToEditProfile()" target="_blank">Profile</a>
+            <a class="nav-link " (click)="goToBuyerHistory()" target="_blank">Buyer history</a>
+            <a class="nav-link active ms-0 " (click)="goToSellerHistory()" target="_blank">Seller History</a>
+
+        </nav>
+        <hr class="mt-0 mb-4">
+        <div class="row">
+            <div class="col-xl-8">
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <ul class="responsive-table">
+                            <li class="table-header">
+                                <div class="col col-1">Id</div>
+                                <div class="col col-2">Product name</div>
+                                <div class="col col-3">Paid amount</div>
+                            </li>
+                            <div *ngFor="let selled of product.selledProducts">
+                                <li class="table-row">
+                                    <div class="col col-1" data-label="Job Id">{{selled.id}}</div>
+                                    <div class="col col-2" data-label="Customer Name">{{selled.product}}</div>
+                                    <div class="col col-3" data-label="Amount">{{selled.price | currency}}</div>
+                                </li>
+                            </div>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

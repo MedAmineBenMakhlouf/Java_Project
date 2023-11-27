@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seller Dashboard</title>
+</head>
+
+<body>
+    <div id="hover-trigger"></div>
+    <div id="sidebar">
+        <div class="p-4 header-container">
+            <img src="./../../../assets/images/logo.png" alt="logo" class="sidebar-logo mb-3">
+            <span class="site-name retro-groovy">MAGESTIC SOUK</span>
+            <div class="list-group mt-1">
+                <div class="">
+                    <a role="button" (click)="dashboardUser()" class="list-group-item text-only mt-3 ms-2 ">
+                        <img src="./../../../assets/images/iconbuyer.webp" alt="User Interface"
+                            class="sidebar-icon rounded-pill border">
+                        <span>USER INTERFACE</span>
+                    </a>
+                </div>
+                <div class="activeinterface">
+                    <a role="button" (click)="dashboardSeller()" class="list-group-item text-only mt-3 ms-2">
+                        <img src="./../../../assets/images/seller.webp" alt="Seller Interface"
+                            class="sidebar-icon rounded-pill border">
+                        <span>SELLER INTERFACE</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="list-group-item text-only logout">
+            <a href="#" class="list-group-item text-only">
+                <i class="fas fa-sign-out-alt sidebar-icon" style="font-size: 100px; display: block; margin: auto;"></i>
+            </a>
+            <span role="button" (click)="logout()">LOGOUT</span>
+        </div>
+    </div>
+
+    <div class="profile-container" role="button" (click)="editProfle()">
+        <img [src]="'http://localhost:8080/uploads/'+data.loggedUser.file_path" alt="Profile Image"
+            class="profile-image rounded-circle">
+        <div class="profile-text">
+            <span class="profile-name">{{data.loggedUser.username}}</span>
+            <span class="profile-email">{{data.loggedUser.email}}</span>
+        </div>
+    </div>
+
+    <div class="balance-container">
+        <img src="./../../../assets/images/bd690801-a741-4b62-8877-ca79a99259c7.webp" alt="Profile Image"
+            class="profile-image rounded-circle">
+        <div class="profile-text">
+            <span class="profile-name">balance</span>
+            <span class="balancespan">{{data.wallet.balance | currency}}</span>
+        </div>
+    </div>
+
+    <div class="add-button">
+        <form (ngSubmit)="AddBalance()">
+
+            <span class="tooltip-text">Add Balance <input type="number" class="w-75 tooltip-text border border-5"
+                    name="amount" [(ngModel)]="amount"> </span>
+            <button type="submit" class="btn btn-primary rounded-circle"><i class="fas fa-plus"></i>
+            </button>
+
+        </form>
+    </div>
+    <div class="withdraw-button">
+        <form (ngSubmit)="withdrawBalance()">
+
+            <span class="tooltip-text">Withdraw Balance <input type="number" class="w-75 tooltip-text border border-5"
+                    name="withdrow" [(ngModel)]="withdrow"> </span>
+            <button type="submit" class="btn btn-primary rounded-circle"> <i class="fas fa-minus"></i>
+            </button>
+
+        </form>
+    </div>
+    <div class="ms-4 mt-5 listofproduct">
+        <div class="container-fluid auction-header row ">
+            <div class="col-4 m-auto">
+                <div *ngIf="data.product.user.id!= data.loggedUser.id">
+                    <h1>{{data.product.name}} Auction</h1>
+                </div>
+                <div class="countdown-timer">Closing in: {{ countdown | async }}</div>
+            </div>
+
+        </div>
+
+        <div class="container auction-container mt-5">
+            <div class="row">
+                <div class="col-md-8">
+                    <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+                        <!-- Carousel Indicators -->
+                        <div class="carousel-indicators">
+                            <button *ngFor="let file of data.product.files; let i = index" type="button"
+                                data-bs-target="#carouselExampleIndicators" [attr.data-bs-slide-to]="i"
+                                [class.active]="i === 0" aria-current="true" [attr.aria-label]="'Slide ' + (i + 1)">
+                            </button>
+                        </div>
+
+                        <!-- Carousel Images -->
+                        <div class="carousel-inner">
+                            <div *ngFor="let file of data.product.files; let i = index" class="carousel-item"
+                                [class.active]="i === 0">
+                                <img [src]="'http://localhost:8080/uploads/' + file.path"
+                                    style="width: 100px; max-height: 500px;" class="d-block w-100" alt="product pic">
+                            </div>
+                        </div>
+
+                        <!-- Carousel Controls -->
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
+                            data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
+                            data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="auction-title">{{data.product.name}} </div>
+                    <div class="auction-info">
+                        <div>Item Description: {{data.product.description}}</div>
+                        <div>Starting Price: {{data.product.price | currency}}</div>
+                        <div>Current Price: <span class="current-price">{{data.lastParticipation | currency}}</span>
+                        </div>
+                    </div>
+                    <div class="d-flex justify-content-start align-items-center mt-4">
+                        <div class="bid-count">{{data.nbrPart}} Bid(s)</div>
+                        <div *ngIf="data.comparison ==false; else dateOver ">
+                            <div *ngIf="data.product.status==false; else Wfe">
+                                <div *ngIf="data.product.user.id!= data.loggedUser.id">
+                                    <form (ngSubmit)="saveBid(data.product.id)">
+                                        <div class="form-group">
+                                            <input type="number" class="form-control" [(ngModel)]="bid" name="bid"
+                                                placeholder="Enter your bid amount" required>
+                                        </div>
+                                        <button type="submit" class="bid-button">Place A Bid</button>
+                                    </form>
+                                </div>
+                                <div *ngIf="data.product.user.id== data.loggedUser.id">
+
+                                    <div class="mt-5" *ngIf="data.product.participations.length != 0; else deletep">
+                                        <p>* You cannot delete your product <br />because it's on auction</p>
+                                    </div>
+                                    <ng-template #deletep>
+                                        <div class="ms-5">
+                                            <a style="text-decoration: underline;" class="text-ingo"
+                                                (click)="deleteProduct(data.product.id)" role="button">Delete
+                                                {{data.product.name}} <i class="fa fa-panel"></i></a>
+                                        </div>
+                                    </ng-template>
+                                </div>
+                            </div>
+                            <ng-template #Wfe>
+                                <div class="d-block ms-3">
+                                    <p>The bid is come to end</p>
+                                    <div>
+                                        <a style="text-decoration: underline;" class="text-ingo"
+                                            (click)="deleteProduct(data.product.id)" role="button">Delete
+                                            {{data.product.name}} <i class="fa fa-trash"></i></a>
+                                    </div>
+                                </div>
+                            </ng-template>
+                        </div>
+                        <ng-template #dateOver>
+                            <div class="d-block ms-3">
+                                <h5>The auction come to end!</h5>
+                                <div>
+                                    <a style="text-decoration: underline;" class="text-ingo"
+                                        (click)="deleteProduct(data.product.id)" role="button">Delete
+                                        {{data.product.name}} <i class="fa fa-trash"></i></a>
+                                </div>
+                            </div>
+                        </ng-template>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

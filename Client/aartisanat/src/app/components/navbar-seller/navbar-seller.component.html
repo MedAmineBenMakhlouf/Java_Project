@@ -1,0 +1,33 @@
+<nav class="navbar navbar-expand-lg navbar-custom d-flex justify-content-between align-items-center">
+  <div class="container-fluid">
+    <div class="navbar-brand">Seller Interface</div>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <div class="navbar-nav mx-auto">
+        <button class="btn btn-link nav-link" (click)="dashboard()">Buyer Interface</button>
+        <button class="btn btn-link nav-link" (click)="addProduct()">Add Product</button>
+        <button class="btn btn-link nav-link" (click)="myList()">My List</button>
+      </div>
+      <div class="d-flex align-items-center">
+        <div *ngIf="user" class="h6 me-3 d-flex align-items-center" style="color: white;">
+          Welcome {{ user.user.username }} your balance is {{user.wallet.balance}} 
+        </div>
+        <ul class="navbar-nav">
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle profile-dropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <img [src]="'http://localhost:8080/uploads/' + user.user.file_path" alt="Profile" class="profile-image">
+            </a>
+            <ul class="dropdown-menu dropdown-menu-end">
+              <li><button class="dropdown-item" (click)="settingPage()">Settings</button></li>
+              <li><button class="dropdown-item" (click)="logout()">Logout</button></li>
+              <li><button class="dropdown-item" (click)="Config_Wallet()">Config Wallet</button></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+      
+    </div>
+  </div>
+</nav>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+</head>
+
+<body>
+    <div *ngIf="user">
+        <!-- Display user information here -->
+        <p>Name: {{ user.seller.username }}</p>
+        <p>Email: {{ user.seller.email }}</p>
+        <div *ngFor="let product of user.sellerProducts">
+            <div class="card w-25">
+                <p>{{ product.name }}</p>
+                <div *ngIf="product.typeProduct == true">
+                    <a role="button" class="text-ingo">For Auction you can participate</a>
+                </div>
+                <div *ngFor="let file of product.files">
+                    <div class="ratio ratio-16x9">
+                        <img [src]="'http://localhost:8080/uploads/' + file.path" alt="Profile" class="profile-image w-25">
+                    </div>
+                </div>
+                <!-- <img [src]="product."/> -->
+                <!-- <button (click)="deleteProduct(product._id)">Delete Product</button> -->
+            </div>
+
+        </div>
+        <!-- other user properties -->
+    </div>
+</body>
+
+</html>

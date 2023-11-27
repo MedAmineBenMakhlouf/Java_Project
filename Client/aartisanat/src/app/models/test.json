@@ -1,0 +1,249 @@
+{
+    "wallet": {
+        "id": 6,
+        "balance": 5500
+    },
+    "loggedUser": {
+        "id": 4,
+        "custumerId": "cus_P0NmnC4WY16nNs",
+        "username": "Amine",
+        "email": "mohamedamin.benmakhlouf@gmail.com",
+        "phone": "+21658011123",
+        "address": "04, Avenue Mongi Slim, El Mourouj 1",
+        "password": "$2a$10$E6cFfj/wDuyTwmDwgTnQeu8.aGLxAAyaH4OYVcOP2QL.R5Gwb4xMW",
+        "passwordConfirmation": null,
+        "createdAt": "2023-11-14T13:50:35.344+00:00",
+        "updatedAt": null,
+        "file_path": "1699969834552_Amine.JPG"
+    },
+    "selledProducts": [],
+    "products": [
+        {
+            "id": 3,
+            "name": "margoum",
+            "description": "Barnous bnin w kolou vitamine",
+            "status": false,
+            "price": 1,
+            "category": "textils",
+            "typeProduct": true,
+            "startTime": "2023-11-14T13:57:00.979+00:00",
+            "endTime": "2023-11-18T13:57:00.980+00:00",
+            "user": {
+                "id": 4,
+                "username": "Amine",
+                "email": "mohamedamin.benmakhlouf@gmail.com",
+                "phone": "+21658011123",
+                "address": "04, Avenue Mongi Slim, El Mourouj 1",
+                "file_path": "1699969834552_Amine.JPG",
+                "products": null
+            },
+            "files": [
+                {
+                    "id": 3,
+                    "path": "1699970221176_barnous-en-laine.jpg",
+                    "product": null,
+                    "createdAt": "2023-11-14T13:57:01.208+00:00",
+                    "updatedAt": null
+                }
+            ],
+            "traceParticipations": [
+                {
+                    "id": 33,
+                    "buyer": {
+                        "id": 5,
+                        "custumerId": "cus_P0Nt558K873979",
+                        "username": "Yassine",
+                        "email": "yassine@gmail.com",
+                        "phone": "+21658011123",
+                        "address": "04, Avenue Mongi Slim, El Mourouj 1",
+                        "password": "$2a$10$JktO3tRcHH5GgYqK9Lm/0.LH6n3RWBy0ez.JCCKBQ2vrR6x5EzIrm",
+                        "passwordConfirmation": null,
+                        "createdAt": "2023-11-14T13:58:14.349+00:00",
+                        "updatedAt": null,
+                        "file_path": "1699970293516_yassine.jpg"
+                    },
+                    "product": {
+                        "id": 3,
+                        "name": "margoum",
+                        "description": "Barnous bnin w kolou vitamine",
+                        "price": 1,
+                        "duration": 4,
+                        "status": false,
+                        "typeProduct": true,
+                        "startTime": "2023-11-14T13:57:00.979+00:00",
+                        "endTime": "2023-11-18T13:57:00.980+00:00",
+                        "category": "textils",
+                        "createdAt": "2023-11-14T13:57:01.018+00:00",
+                        "updatedAt": null
+                    },
+                    "amount": 100,
+                    "createdAt": "2023-11-15T18:05:10.305+00:00",
+                    "updatedAt": null
+                },
+                {
+                    "id": 34,
+                    "buyer": {
+                        "id": 5,
+                        "custumerId": "cus_P0Nt558K873979",
+                        "username": "Yassine",
+                        "email": "yassine@gmail.com",
+                        "phone": "+21658011123",
+                        "address": "04, Avenue Mongi Slim, El Mourouj 1",
+                        "password": "$2a$10$JktO3tRcHH5GgYqK9Lm/0.LH6n3RWBy0ez.JCCKBQ2vrR6x5EzIrm",
+                        "passwordConfirmation": null,
+                        "createdAt": "2023-11-14T13:58:14.349+00:00",
+                        "updatedAt": null,
+                        "file_path": "1699970293516_yassine.jpg"
+                    },
+                    "product": {
+                        "id": 3,
+                        "name": "margoum",
+                        "description": "Barnous bnin w kolou vitamine",
+                        "price": 1,
+                        "duration": 4,
+                        "status": false,
+                        "typeProduct": true,
+                        "startTime": "2023-11-14T13:57:00.979+00:00",
+                        "endTime": "2023-11-18T13:57:00.980+00:00",
+                        "category": "textils",
+                        "createdAt": "2023-11-14T13:57:01.018+00:00",
+                        "updatedAt": null
+                    },
+                    "amount": 200,
+                    "createdAt": "2023-11-15T18:05:18.697+00:00",
+                    "updatedAt": null
+                },
+                {
+                    "id": 35,
+                    "buyer": {
+                        "id": 5,
+                        "custumerId": "cus_P0Nt558K873979",
+                        "username": "Yassine",
+                        "email": "yassine@gmail.com",
+                        "phone": "+21658011123",
+                        "address": "04, Avenue Mongi Slim, El Mourouj 1",
+                        "password": "$2a$10$JktO3tRcHH5GgYqK9Lm/0.LH6n3RWBy0ez.JCCKBQ2vrR6x5EzIrm",
+                        "passwordConfirmation": null,
+                        "createdAt": "2023-11-14T13:58:14.349+00:00",
+                        "updatedAt": null,
+                        "file_path": "1699970293516_yassine.jpg"
+                    },
+                    "product": {
+                        "id": 3,
+                        "name": "margoum",
+                        "description": "Barnous bnin w kolou vitamine",
+                        "price": 1,
+                        "duration": 4,
+                        "status": false,
+                        "typeProduct": true,
+                        "startTime": "2023-11-14T13:57:00.979+00:00",
+                        "endTime": "2023-11-18T13:57:00.980+00:00",
+                        "category": "textils",
+                        "createdAt": "2023-11-14T13:57:01.018+00:00",
+                        "updatedAt": null
+                    },
+                    "amount": 300,
+                    "createdAt": "2023-11-15T18:05:31.359+00:00",
+                    "updatedAt": null
+                },
+                {
+                    "id": 36,
+                    "buyer": {
+                        "id": 5,
+                        "custumerId": "cus_P0Nt558K873979",
+                        "username": "Yassine",
+                        "email": "yassine@gmail.com",
+                        "phone": "+21658011123",
+                        "address": "04, Avenue Mongi Slim, El Mourouj 1",
+                        "password": "$2a$10$JktO3tRcHH5GgYqK9Lm/0.LH6n3RWBy0ez.JCCKBQ2vrR6x5EzIrm",
+                        "passwordConfirmation": null,
+                        "createdAt": "2023-11-14T13:58:14.349+00:00",
+                        "updatedAt": null,
+                        "file_path": "1699970293516_yassine.jpg"
+                    },
+                    "product": {
+                        "id": 3,
+                        "name": "margoum",
+                        "description": "Barnous bnin w kolou vitamine",
+                        "price": 1,
+                        "duration": 4,
+                        "status": false,
+                        "typeProduct": true,
+                        "startTime": "2023-11-14T13:57:00.979+00:00",
+                        "endTime": "2023-11-18T13:57:00.980+00:00",
+                        "category": "textils",
+                        "createdAt": "2023-11-14T13:57:01.018+00:00",
+                        "updatedAt": null
+                    },
+                    "amount": 400,
+                    "createdAt": "2023-11-15T18:05:45.410+00:00",
+                    "updatedAt": null
+                }
+            ],
+            "participations": [
+                {
+                    "id": 34,
+                    "buyer": {
+                        "id": 5,
+                        "custumerId": "cus_P0Nt558K873979",
+                        "username": "Yassine",
+                        "email": "yassine@gmail.com",
+                        "phone": "+21658011123",
+                        "address": "04, Avenue Mongi Slim, El Mourouj 1",
+                        "password": "$2a$10$JktO3tRcHH5GgYqK9Lm/0.LH6n3RWBy0ez.JCCKBQ2vrR6x5EzIrm",
+                        "passwordConfirmation": null,
+                        "createdAt": "2023-11-14T13:58:14.349+00:00",
+                        "updatedAt": null,
+                        "file_path": "1699970293516_yassine.jpg"
+                    },
+                    "product": {
+                        "id": 3,
+                        "name": "margoum",
+                        "description": "Barnous bnin w kolou vitamine",
+                        "price": 1,
+                        "duration": 4,
+                        "status": false,
+                        "typeProduct": true,
+                        "startTime": "2023-11-14T13:57:00.979+00:00",
+                        "endTime": "2023-11-18T13:57:00.980+00:00",
+                        "category": "textils",
+                        "createdAt": "2023-11-14T13:57:01.018+00:00",
+                        "updatedAt": null
+                    },
+                    "amount": 400
+                }
+            ]
+        },
+        {
+            "id": 4,
+            "name": "zarbia",
+            "description": "jhgkgkjhgkjgkjh",
+            "status": true,
+            "price": 250,
+            "category": "textils",
+            "typeProduct": false,
+            "startTime": null,
+            "endTime": null,
+            "user": {
+                "id": 4,
+                "username": "Amine",
+                "email": "mohamedamin.benmakhlouf@gmail.com",
+                "phone": "+21658011123",
+                "address": "04, Avenue Mongi Slim, El Mourouj 1",
+                "file_path": "1699969834552_Amine.JPG",
+                "products": null
+            },
+            "files": [
+                {
+                    "id": 4,
+                    "path": "1700056431948_zarbia.jpg",
+                    "product": null,
+                    "createdAt": "2023-11-15T13:53:52.007+00:00",
+                    "updatedAt": null
+                }
+            ],
+            "traceParticipations": [],
+            "participations": []
+        }
+    ]
+}

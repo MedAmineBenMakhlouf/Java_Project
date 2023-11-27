@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+<div id="hover-trigger"></div>
+	<div id="sidebar">
+		<div class="p-4 header-container">
+			<img src="./../../../assets/images/logo.png" alt="logo" class="sidebar-logo mb-3">
+			<span class="site-name retro-groovy">MAGESTIC SOUK</span>
+			<div class="list-group mt-1">
+				<div class="">
+					<a role="button" (click)="dashboardUser()" class="list-group-item text-only mt-3 ms-2 ">
+						<img src="./../../../assets/images/iconbuyer.webp" alt="User Interface"
+							class="sidebar-icon rounded-pill border">
+						<span>USER INTERFACE</span>
+					</a>
+				</div>
+				<div class="activeinterface">
+					<a role="button" (click)="dashboardSeller()" class="list-group-item text-only mt-3 ms-2">
+						<img src="./../../../assets/images/seller.webp" alt="Seller Interface"
+							class="sidebar-icon rounded-pill border">
+						<span>SELLER INTERFACE</span>
+					</a>
+				</div>
+			</div>
+		</div>
+		<div class="list-group-item text-only logout">
+			<a href="#" class="list-group-item text-only">
+				<i class="fas fa-sign-out-alt sidebar-icon" style="font-size: 100px; display: block; margin: auto;"></i>
+			</a>
+			<span role="button" (click)="logout()">LOGOUT</span>
+		</div>
+	</div>
+
+    <div class="confirmation-container mt-5">
+        <div class="message-box">
+          <h1>Thank You for Your Purchase!</h1>
+          <p>Your order <strong> {{data.name}} </strong>has been successfully placed. Please wait 24 hours for delivery.</p>
+          <p>an amount of <strong> {{data.price | currency}} </strong> has been charged to <strong> {{data.user.username}}</strong>.</p>
+          <p>you can call him at <strong>{{data.user.phone}} </strong>or send him mail to <strong>{{data.user.email}}</strong>.</p>
+          <p class="info">Print this page as proof of purchase.</p>
+          <button class="btn print-button me-2" (click)="printPage()">Print This Page</button>
+          <button class="btn print-button" (click)="goBack()">Go Back</button>
+        </div>
+      </div>
+      
+</body>
+</html>

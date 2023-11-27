@@ -1,0 +1,5 @@
+@charset "ISO-8859-1";
+
+img.scale-up {
+    transform: scale(1.5);
+}

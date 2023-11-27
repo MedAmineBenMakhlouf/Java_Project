@@ -1,0 +1,45 @@
+
+.withdraw-button {
+    position: fixed;
+    top: 11%;
+    right: 20%;
+    display: inline-block; 
+    z-index: 1;
+}
+
+.withdraw-button button {
+    background-color: rgb(148, 56, 15);
+    color: bisque;
+    font-size: 20px;
+    width: 50px;
+    height: 50px;
+    border: none;
+    border-radius: 50%;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    position: relative;
+    transition: transform 0.2s ease-in-out;
+    z-index: 1;
+}
+
+.withdraw-button button:hover {
+    background-color: #E91E63;
+    color: white;
+    z-index: 1;
+}
+
+.withdraw-button .tooltip-text {
+    visibility: hidden;
+    background-color: black;
+    color: white;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px;
+    position: absolute;
+    z-index: 1;
+    left: 100%; /* Position to the right of the button */
+    top: 50%;
+    transform: translateY(-50%);
+    white-space: nowrap; /* Ensure the text does not wrap */
+    opacity: 0;
+    transition: opacity 0.3s;
+}
