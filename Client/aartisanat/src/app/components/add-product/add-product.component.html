@@ -89,10 +89,16 @@
 			<div class="mb-3">
 				<input type="text" class="form-control" placeholder="Name" id="productName" [(ngModel)]="product.name"
 					name="name" required>
+					<div *ngIf="fieldErrors['name']" class="text-danger">
+						{{ fieldErrors['name'] }}
+					</div>
 			</div>
 			<div class="mb-3">
 				<textarea class="form-control" placeholder="Description" id="productDescription"
 					[(ngModel)]="product.description" name="description" rows="3" required></textarea>
+					<div *ngIf="fieldErrors['description']" class="text-danger">
+						{{ fieldErrors['description'] }}
+					</div>
 			</div>
 			<div class="mb-3">
 				<select class="form-select" placeholder="Category" id="productCategory" [(ngModel)]="product.category"
@@ -104,17 +110,27 @@
 					<option value="ceramics">Cermics</option>
 					<option value="textils">Textils</option>
 				</select>
+				<div *ngIf="fieldErrors['category']" class="text-danger">
+					{{ fieldErrors['category'] }}
+				</div>
 			</div>
 			<div *ngIf="!showAdditional">
 				<div class="mb-3">
 					<input type="number" class="form-control" placeholder="Price" id="productPrice"
 						[(ngModel)]="product.price" name="price" min="0" step="0.001" required>
 				</div>
+				<div *ngIf="fieldErrors['price']" class="text-danger">
+					{{ fieldErrors['price'] }}
+				</div>
 			</div>
 			<div class="mb-3">
 				<input type="file" class="form-control" id="productImage" (change)="onFilesSelected($event)" multiple
 					required>
+					<div *ngIf="errorMessage" class="text-danger">
+						{{ errorMessage }}
+					</div>
 			</div>
+
 			<div class="mb-3 form-check">
 				<input type="checkbox" [(ngModel)]="product.typeProduct" name="typeProduct" class=" form-check-input"
 					id="toggleAdditionalFields" [(ngModel)]="isChecked" (change)="checkStatus($event)"
@@ -134,6 +150,9 @@
 						<option value="3">Three Days</option>
 						<option value="5">Five Days</option>
 					</select>
+					<div *ngIf="fieldErrors['duration']" class="text-danger">
+						{{ fieldErrors['duration'] }}
+					</div>
 					<p class=" h6 text-danger">* The price of you product will start with 1 $</p>
 				</div>
 			</div>

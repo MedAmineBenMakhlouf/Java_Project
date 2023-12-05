@@ -35,21 +35,19 @@ public class Product {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
-	@NotNull
-	@NotBlank
+	@NotNull(message = "name is required")
 	@Size(min = 5, max = 150)
 	private String name;
 
-	@NotNull
-	@NotBlank
+	@NotNull(message = "description is required")
 	@Size(min = 5, max = 500)
 	private String description;
 	
-	@NotNull
+	@NotNull(message = "price is required")
 	@Min(1)
 	private double price;
 	
-	@NotNull
+	@NotNull(message = "duration is required")
 	private int duration;
 	//duration must be an enum (selected values bech ma tetmassech bel postman)
 	
@@ -72,7 +70,7 @@ public class Product {
 	
 	
 	
-	@NotNull
+	@NotNull(message = "category is required")
 	private String category;
 	// Famma 6 max category possibles
 

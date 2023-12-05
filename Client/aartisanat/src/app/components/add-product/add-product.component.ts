@@ -26,6 +26,8 @@ export class AddProductComponent {
     duration: any;
     isChecked: boolean = false;
     withdrow: any;
+    errorMessage?: String;
+    fieldErrors: { [key: string]: string } = {};
 
 
     constructor(
@@ -75,10 +77,6 @@ export class AddProductComponent {
         else {
             this.product.typeProduct = false;
         }
-        console.log(this.product.typeProduct)
-        console.log(this.product.duration)
-        console.log(this.product.price)
-        console.log(this.product.category);
         if (this.product.typeProduct == true) {
             this.product.price = 1;
         }
@@ -95,6 +93,23 @@ export class AddProductComponent {
             },
             error: (error) => {
                 console.error('Product registration failed:', error);
+                if (error.status === 400 && error.error && error.error.message === "Required part 'files' is not present.") {
+                    this.errorMessage = "Files are required.";
+                }
+
+                if (error.status === 400 && error.error && Array.isArray(error.error)) {
+                    // Clear existing errors
+                    this.fieldErrors = {};
+    
+                    // Process each field error
+                    error.error.forEach((fieldError: { field: any; defaultMessage: any; }) => {
+                        const field = fieldError.field;
+                        const message = fieldError.defaultMessage;
+    
+                        // Store the error message for the corresponding field
+                        this.fieldErrors[field] = message;
+                    });
+                }
             }
         });
     }

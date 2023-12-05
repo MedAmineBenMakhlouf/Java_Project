@@ -5,52 +5,6 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 </head>
 <body>
-<!-- 
-
-
-<div class="container mt-5">
-  <button type="button" class="btn btn-secondary btn-sm" (click)="loginpage()">Login </button>
-  <h2>Register User</h2>
-
-  <form (ngSubmit)="registerUser()" #userForm="ngForm">
-    <div class="form-row">
-      <div class="form-group col-md-6">
-        <label for="username">Username</label>
-        <input type="text" class="form-control" id="username" [(ngModel)]="user.username" name="username" required>
-      </div>
-      <div class="form-group col-md-6">
-        <label for="inputEmail">Email</label>
-        <input type="email" class="form-control" id="inputEmail" [(ngModel)]="user.email" name="email" required>
-      </div>
-    </div>
-    <div class="form-group">
-      <label for="inputPhone">Phone</label>
-      <input type="tel" class="form-control" id="inputPhone" [(ngModel)]="user.phone" name="phone">
-    </div>
-    <div class="form-group">
-      <label for="inputAddress">Address</label>
-      <input type="text" class="form-control" id="inputAddress" [(ngModel)]="user.address" name="address">
-    </div>
-    <div class="form-group">
-      <label for="inputAddress">Picture:</label>
-      <input input type="file" class="form-control" name="file" accept=".jpg, .jpeg, .png" (change)="onFileSelected($event)">
-    </div>
-    <div class="form-row">
-      <div class="form-group col-md-6">
-        <label for="inputPassword">Password</label>
-        <input type="password" class="form-control" id="inputPassword" [(ngModel)]="user.password" name="password" required>
-      </div>
-      <div class="form-group col-md-6">
-        <label for="inputPasswordConfirmation">Confirm Password</label>
-        <input type="password" class="form-control" id="inputPasswordConfirmation" [(ngModel)]="user.passwordConfirmation" name="passwordConfirmation" required>
-      </div>
-    </div>
-    <input type="submit" class="btn btn-primary" value="Register"/>
-  </form>
-
-</div> -->
-
-
 
 <div class="tip"></div>
 <div class="cont" [ngClass]="{'s--signup': isSignUp}">
@@ -93,8 +47,6 @@
     </div>
 
     <div class="form sign-up">
-      <h2>Time to feel like home,</h2>
-
       <!-- Sign Up Form -->
       <form (ngSubmit)="registerUser()" #userForm="ngForm">
         <div>
